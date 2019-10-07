@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>留言板02</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header></header>
+    <nav>
+        <a href="#leave">发表留言</a>
+    </nav>
+    <section class="message"></section>
+    <section id="leave">
+        <figure>
+            <div>
+                <label>选择头像：</label>
+                <select>
+                    <option value="1">头像 1</option>
+                </select>
+            </div>
+            <div>
+                <label>昵称：</label>
+                <input type="text" onblur="checkNickName(this)">
+                <span id="tip"></span>
+            </div>
+            <div>
+                <label>留言内容：</label>
+                <textarea onblur="checkContent(this)"></textarea>
+                <span id="tip1"></span>
+            </div>
+            <button>发表留言</button>
+        </figure>
+        <img class="form_head" src="images/head/1.gif">
+    </section>
+    <footer>版权没有·翻版不究</footer>
+</body>
+<script>
+    //获取select
+    var select = document.querySelector('select');
+    var option = '';
+    for (let i = 1; i <= 30; i++) {
+        option += '<option value="' + i + '">头像 ' + i + '</option>';
+    }
+    console.log(option);
+    select.innerHTML = option;
+    // 选择头像
+    select.onchange = function () {
+        document.querySelector('.form_head').src = 'images/head/' + this.value + '.gif';
+    }
+    //判断昵称是否合法
+    function checkNickName(input) {
+        var nickname = input.value;
+        var nickname_rule = /^[\u4e00-\u9fa5]{0}$/;
+        var tip = document.getElementById("tip");
+        if (nickname.match(nickname_rule) == "") {
+            tip.innerHTML = "请输入昵称！";
+            return false;
+        } else {
+            tip.innerHTML = "昵称通过验证";
+        }
+    }
+
+    //判断留言内容是否合法
+        function checkContent(input1) {
+            var content = input1.value;
+            var content_rule = /^[\u4e00-\u9fa5]{0}$/;
+            var tip1 = document.getElementById("tip1");
+            if (content.match(content_rule) == "") {
+                tip1.innerHTML = "留言内容不能为空哦！";
+                return false;
+            } else {
+                tip1.innerHTML = "留言内容完全ojbk";
+            }
+        }
+
+
+    //发表留言
+        var messageWrap = document.querySelector('.message');
+        var input = document.querySelector('input');
+        var textarea = document.querySelector('textarea');
+        var button = document.querySelector('button');
+        var message = '';
+        button.onclick = function () {
+            if (input.value==''||textarea.value==''){
+                alert("请填写昵称和留言内容!!!");
+                return false;
+            }
+            //input.valid    select.value    textarea.value
+            message += '<div><aside><h3>' + input.value + '</h3><img src="images/head/' + select.value + '.gif"></aside><article>' + textarea.value + '</article></div>';
+            messageWrap.innerHTML = message;
+        }
+</script>
+
+</html>

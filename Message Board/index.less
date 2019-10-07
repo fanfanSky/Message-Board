@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Microsoft Yahei';
+    font-size: 62.5%;
+}
+header {
+    width: 800px;
+    height: 260px;
+    background: url('images/banner.jpg') no-repeat center center;
+    margin: 0 auto;
+    border-right: 1px solid green;
+    border-left: 1px solid green;
+}
+nav>a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: green;
+}
+section {
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px 45px 0;
+    border-right: 1px solid green;
+    border-left: 1px solid green;
+    #leave {
+        display: flex;
+        figure {
+            flex: 1;
+            div {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+                label {
+                    width: 100px;
+                    text-align: right;
+                }
+                select {
+                    width: 100px;
+                    border: 1px solid green;
+                }
+                input {
+                    width: 200px;
+                    border: 1px solid green;
+                }
+                textarea {
+                    width: 300px;
+                    height: 50px;
+                    border: 1px solid green;
+                }
+            }
+            button {
+                margin-left: 100px;
+                padding: 5px;
+                border: 1px solid green;
+                background: transparent;
+            }
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+footer {
+    width: 800px;
+    margin: 0 auto;
+    padding: 30px 0 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-right: 1px solid green;
+    border-left: 1px solid green;
+}
+.message {
+    div {
+        display: flex;
+        margin-bottom: 10px;
+        border: 1px solid green;
+        aside {
+            padding: 10px;
+            border-right: 1px solid green;
+            width: 120px;
+            text-align: center;
+        }
+        article {
+            padding: 10px;
+            flex: 1;
+        }
+    }
+}
